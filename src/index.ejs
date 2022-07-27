@@ -4,8 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Root Config</title>
+  <title>Sinbad - Seller Center</title>
 
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  
   <!--
     Remove this if you only support browsers that support async/await.
     This is needed by babel to share largeish helper code for compiling async/await in older
@@ -34,7 +38,7 @@
   <script type="systemjs-importmap">
     {
       "imports": {
-        "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js"
+        "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.dev.js"
       }
     }
   </script>
@@ -47,8 +51,6 @@
   <script type="systemjs-importmap">
     {
       "imports": {
-        "react": "https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.production.min.js",
-        "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.production.min.js",
         "@sinbad/root-config": "//localhost:9000/sinbad-root-config.js",
         "web-sinbad-seller-center": "//localhost:4200/main.js"
       }
@@ -62,6 +64,8 @@
   -->
   <!-- <script src="https://cdn.jsdelivr.net/npm/zone.js@0.11.3/dist/zone.min.js"></script> -->
 
+  <script src="https://cdn.jsdelivr.net/npm/zone.js@0.11.3/dist/zone.min.js"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@2.2.0/dist/import-map-overrides.js"></script>
   <% if (isLocal) { %>
   <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.js"></script>
@@ -71,6 +75,11 @@
   <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.min.js"></script>
   <% } %>
 
+  <template id="single-spa-layout">
+    <single-spa-router>
+      <application name="web-sinbad-seller-center"></application>
+    </single-spa-router>
+  </template>
 </head>
 <body>
   <noscript>
