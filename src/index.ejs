@@ -29,6 +29,29 @@
     style-src 'unsafe-inline' https:; object-src 'none';"
   />
   <meta name="importmap-type" content="systemjs-importmap" />
+
+  <meta name="description" content="Sinbad Seller Center is the application for seller" />
+  <meta
+      name="keywords"
+      content="Sinbad,Sinbad Application,Sinbad Seller Center,Sinbad Seller Centre,Seller,Seller Center,Seller Centre"
+  />
+  <meta name="author" content="Sinbad" />
+  <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  />
+
+  <!-- <link rel="icon" type="image/x-icon" href="favicon.ico" /> -->
+  <link href="assets/icons/meteocons/style.css" rel="stylesheet" />
+  <link href="assets/icons/material-icons/outline/style.css" rel="stylesheet" />
+  <link
+      href="https://fonts.googleapis.com/css?family=Aref+Ruqaa|Mirza|Roboto|Muli:300,400,600,700"
+      rel="stylesheet"
+  />
+
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#f0444c" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <!-- If you wish to turn off import-map-overrides for specific environments (prod), uncomment the line below -->
   <!-- More info at https://github.com/joeldenning/import-map-overrides/blob/master/docs/configuration.md#domain-list -->
   <!-- <meta name="import-map-overrides-domains" content="denylist:prod.example.com" /> -->
@@ -82,12 +105,6 @@
   <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.min.js"></script>
   <% } %>
-
-  <template id="single-spa-layout">
-    <single-spa-router>
-      <application name="web-sinbad-seller-center"></application>
-    </single-spa-router>
-  </template>
 </head>
 <body>
   <noscript>
