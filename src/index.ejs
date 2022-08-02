@@ -26,7 +26,8 @@
     script-src 'unsafe-inline' 'unsafe-eval' https: localhost:*; 
     worker-src 'unsafe-inline' 'unsafe-eval' https: localhost:* blob:; 
     connect-src https: localhost:* ws://localhost:* wss://*.firebasedatabase.app; 
-    style-src 'unsafe-inline' https:; object-src 'none';"
+    style-src 'unsafe-inline' https: http:; 
+    object-src 'none';"
   />
   <meta name="importmap-type" content="systemjs-importmap" />
 
@@ -41,15 +42,13 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
   />
 
-  <!-- <link rel="icon" type="image/x-icon" href="favicon.ico" /> -->
-  <link href="assets/icons/meteocons/style.css" rel="stylesheet" />
-  <link href="assets/icons/material-icons/outline/style.css" rel="stylesheet" />
+  <link href="/assets/icons/meteocons/style.css" rel="stylesheet" />
+  <link href="/assets/icons/material-icons/outline/style.css" rel="stylesheet" />
   <link
       href="https://fonts.googleapis.com/css?family=Aref+Ruqaa|Mirza|Roboto|Muli:300,400,600,700"
       rel="stylesheet"
   />
 
-  <link rel="manifest" href="manifest.webmanifest" />
   <meta name="theme-color" content="#f0444c" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <!-- If you wish to turn off import-map-overrides for specific environments (prod), uncomment the line below -->
@@ -67,7 +66,9 @@
   <script type="systemjs-importmap">
     {
       "imports": {
-        "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.dev.js"
+        "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.dev.js",
+        "react": "https://cdn.jsdelivr.net/npm/react@17.0.2/umd/react.development.js",
+        "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@17.0.2/umd/react-dom.development.js"
       }
     }
   </script>
@@ -82,7 +83,9 @@
     {
       "imports": {
         "@sinbad/root-config": "//localhost:9000/sinbad-root-config.js",
-        "web-sinbad-seller-center": "//localhost:4200/main.js"
+        "web-sinbad-seller-center": "//localhost:4200/main.js",
+        "@sinbad/mf-ssc-sidebar": "//localhost:8500/sinbad-mf-ssc-sidebar.js",
+        "@sinbad/mf-ssc-header": "//localhost:8501/sinbad-mf-ssc-header.js"
       }
     }
   </script>
