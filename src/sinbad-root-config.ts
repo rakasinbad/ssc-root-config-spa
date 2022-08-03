@@ -1,23 +1,14 @@
 import { registerApplication, start } from "single-spa";
-import {
-  constructApplications,
-  constructRoutes,
-  constructLayoutEngine,
-} from "single-spa-layout";
-import microfrontendLayout from "./microfrontend-layout.html";
+import { initEvent, constructEngine } from './infrastructure/settings';
 
-const routes = constructRoutes(microfrontendLayout);
-const applications = constructApplications({
-  routes,
-  loadApp({ name }) {
-    // @ts-ignore
-    return System.import(name);
-  },
-});
-const layoutEngine = constructLayoutEngine({ routes, applications });
+async function bootstrap() {
+  initEvent();
+  const layoutEngine = await constructEngine();
+  
+  layoutEngine.activate();
+  start({
+    urlRerouteOnly: true,
+  });
+}
 
-applications.forEach(registerApplication);
-layoutEngine.activate();
-start({
-  urlRerouteOnly: true,
-});
+bootstrap();

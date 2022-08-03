@@ -85,7 +85,6 @@
     }
   </script>
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js" as="script">
-  <link rel="stylesheet" href="/assets/css/index.css" />
 
   <!-- Add your organization's prod import map URL to this script's src  -->
   <!-- <script type="systemjs-importmap" src="/importmap.json"></script> -->
@@ -94,7 +93,7 @@
   <script type="systemjs-importmap">
     {
       "imports": {
-        "@sinbad/root-config": "//localhost:9000/sinbad-root-config.js",
+        "@sinbad/ssc-root-config": "//localhost:9000/sinbad-root-config.js",
         "web-sinbad-seller-center": "//localhost:4200/main.js",
         "@sinbad/ssc-sidebar": "//localhost:8500/sinbad-ssc-sidebar.js"
       }
@@ -118,13 +117,19 @@
   <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.min.js"></script>
   <% } %>
+
+  <link rel="stylesheet" href="/assets/css/index.css" />
+  <link rel="stylesheet" href="/assets/css/loading.css" />
 </head>
 <body>
   <noscript>
     You need to enable JavaScript to run this app.
   </noscript>
+  <div id="loading-ring">
+    <div></div>
+  </div>
   <script>
-    System.import('@sinbad/root-config');
+    System.import('@sinbad/ssc-root-config');
   </script>
   <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
 </body>
