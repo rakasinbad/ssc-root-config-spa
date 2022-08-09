@@ -6,23 +6,21 @@
 
   -->
   <route default>
-    <div id="snb-body-section"> <!-- id="snb-body-section" -->
-      <div id="snb-body__left-section"> <!-- id="snb-body__left-section" -->
-        <div id="snb-sidebar__dom-element"> <!-- id="snb-sidebar__dom-element" -->
+    <div id="snb-body-section">
+      <div id="snb-body__left-section"> 
+        <div id="snb-sidebar__dom-element">
             <application
                 name="@sinbad/ssc-sidebar"
             ></application>
         </div>
       </div>
 
-      <div id="snb-body__right-section"> <!-- id="snb-body__right-section" -->
-        <div id="snb-main__dom-element"> <!-- id="snb-main__dom-element" -->
-          <application 
-            name="web-sinbad-seller-center"
-            loader="ssc"
-            error="ssc"
-          ></application>
-        </div>
+      <div id="snb-body__right-section"> 
+        <application 
+          name="web-sinbad-seller-center"
+          loader="ssc"
+          error="ssc"
+        ></application>
       </div>
     </div>
   </route>

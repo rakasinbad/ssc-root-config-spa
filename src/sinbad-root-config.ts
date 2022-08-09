@@ -1,4 +1,4 @@
-import { registerApplication, start } from "single-spa";
+import { start } from "single-spa";
 import { initEvent, constructEngine } from './infrastructure/settings';
 
 async function bootstrap() {
@@ -6,6 +6,7 @@ async function bootstrap() {
   const layoutEngine = await constructEngine();
   
   layoutEngine.activate();
+  
   start({
     urlRerouteOnly: true,
   });
