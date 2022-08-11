@@ -7,6 +7,9 @@ async function bootstrap() {
   
   layoutEngine.activate();
   
+  await System.import("@sinbad/mf-react-component");
+  await System.import("@sinbad/mf-style");
+  
   start({
     urlRerouteOnly: true,
   });

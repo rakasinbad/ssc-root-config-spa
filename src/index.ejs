@@ -86,15 +86,21 @@
   </script>
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js" as="script">
 
-  <!-- Add your organization's prod import map URL to this script's src  -->
-  <!-- <script type="systemjs-importmap" src="/importmap.json"></script> -->
+  <script type="systemjs-importmap" src="https://seller.sinbad.co.id/importmap.json"></script>
 
+  <!-- 
+    jika ssc medea run di local
+    "web-sinbad-seller-center": "//localhost:4200/main.js",
+
+    jika ssc medea hasil build
+    "web-sinbad-seller-center": "//localhost:4200/main-es2015.js",
+   -->
   <% if (isLocal) { %>
   <script type="systemjs-importmap">
     {
       "imports": {
         "@sinbad/ssc-root-config": "//localhost:9000/sinbad-root-config.js",
-        "web-sinbad-seller-center": "//localhost:4200/main.js",
+        "web-sinbad-seller-center": "//localhost:4200/main-es2015.js",
         "@sinbad/ssc-sidebar": "//localhost:8500/sinbad-ssc-sidebar.js"
       }
     }
