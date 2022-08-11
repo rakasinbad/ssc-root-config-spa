@@ -24,9 +24,9 @@
   -->
 
   <% if (isLocal) { %>
-    <meta http-equiv="Content-Security-Policy" content="default-src * data: 'self' http: localhost:* blob:; 
-    script-src 'unsafe-inline' 'unsafe-eval' http: localhost:*; 
-    worker-src 'unsafe-inline' 'unsafe-eval' http: localhost:* blob:; 
+    <meta http-equiv="Content-Security-Policy" content="default-src * data: 'self' http: https: localhost:* blob:; 
+    script-src 'unsafe-inline' 'unsafe-eval' http: https: localhost:*; 
+    worker-src 'unsafe-inline' 'unsafe-eval' http: https: localhost:* blob:; 
     connect-src http: localhost:* ws://localhost:* wss://*.firebasedatabase.app; 
     style-src 'unsafe-inline' http:; object-src 'none';"
   />
@@ -84,9 +84,7 @@
       }
     }
   </script>
-  <link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js" as="script">
-
-  <script type="systemjs-importmap" src="https://seller.sinbad.co.id/importmap.json"></script>
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js" as="script">  
 
   <!-- 
     jika ssc medea run di local
@@ -95,6 +93,9 @@
     jika ssc medea hasil build
     "web-sinbad-seller-center": "//localhost:4200/main-es2015.js",
    -->
+   
+  <script type="systemjs-importmap" src="https://mf-ssc-sandbox.sinbad.web.id/importmap.json"></script>
+
   <% if (isLocal) { %>
   <script type="systemjs-importmap">
     {
@@ -102,7 +103,7 @@
         "@sinbad/ssc-root-config": "//localhost:9000/sinbad-root-config.js",
         "web-sinbad-seller-center": "//localhost:4200/main-es2015.js",
         "@sinbad/ssc-sidebar": "//localhost:8500/sinbad-ssc-sidebar.js"
-      }
+      } 
     }
   </script>
   <% } %>
