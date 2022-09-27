@@ -1,7 +1,5 @@
 <single-spa-router>
-  <redirect from="/" to="/pages/stores"></redirect>
-
-  <route path="pages">
+  <route default>
     <div id="snb-body-section">
       <div id="snb-body__left-section"> 
         <div id="snb-sidebar__dom-element">
@@ -10,19 +8,11 @@
       </div>
 
       <div id="snb-body__right-section">
-        <route path="sales-force">
+        <route path="pages/sales-force">
           <application 
             name="@sinbad/web-sbp-embed" 
             loader="sbp" 
             error="sbp">
-          </application>
-        </route>
-
-        <route default>
-          <application 
-            name="web-sinbad-seller-center" 
-            loader="ssc" 
-            error="ssc">
           </application>
         </route>
       </div>
