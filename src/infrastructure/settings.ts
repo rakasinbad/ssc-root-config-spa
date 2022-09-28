@@ -13,11 +13,13 @@ export const constructEngine = async () => {
   const data = {
     loaders: {
       ssc: "<h1>Loading Seller Center</h1>",
-      sidebar: "<h1>Loading Sidebar",
+      sidebar: "<h1>Loading Sidebar</h1>",
+      header: "<h1>Loading Header</h1>",
     },
     errors: {
       ssc: "<h1>Failed to load Seller Center</h1>",
       sidebar: "<h1>Failed to load Sidebar</h1>",
+      header: "<h1>Failed to load Header</h1>",
     },
     props: {},
   };

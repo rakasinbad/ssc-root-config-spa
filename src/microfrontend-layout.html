@@ -11,16 +11,28 @@
         <div id="snb-sidebar__dom-element">
             <application
                 name="@sinbad/ssc-sidebar"
+                loader="sidebar"
+                error="sidebar"
             ></application>
         </div>
       </div>
 
       <div id="snb-body__right-section"> 
-        <application 
-          name="web-sinbad-seller-center"
-          loader="ssc"
-          error="ssc"
-        ></application>
+        <div id="snb-header__dom-element">
+            <application
+                name="@sinbad/ssc-header"
+                loader="header"
+                error="header"
+            ></application>
+        </div>
+
+        <div id="snb-main__dom-element">
+          <application 
+            name="web-sinbad-seller-center"
+            loader="ssc"
+            error="ssc"
+          ></application>
+        </div>
       </div>
     </div>
   </route>

@@ -60,7 +60,7 @@
       rel="stylesheet"
   />
 
-  <meta name="theme-color" content="#f0444c" />
+  <meta name="theme-color" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <!-- If you wish to turn off import-map-overrides for specific environments (prod), uncomment the line below -->
   <!-- More info at https://github.com/joeldenning/import-map-overrides/blob/master/docs/configuration.md#domain-list -->
@@ -102,7 +102,8 @@
       "imports": {
         "@sinbad/ssc-root-config": "//localhost:9000/sinbad-root-config.js",
         "web-sinbad-seller-center": "//localhost:4200/main.js",
-        "@sinbad/ssc-sidebar": "//localhost:8500/sinbad-ssc-sidebar.js"
+        "@sinbad/ssc-sidebar": "//localhost:9005/sidebar/sinbad-ssc-navigation.js",
+        "@sinbad/ssc-header": "//localhost:9005/header/sinbad-ssc-navigation.js"
       } 
     }
   </script>
