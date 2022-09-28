@@ -26,17 +26,16 @@ export const constructEngine = async () => {
     props: {},
   };
 
-  const currentURL = window.location.href // returns the absolute URL of a page
-
   const pathname = window.location.pathname //returns the current url minus the domain name
 
   let routes: ResolvedRoutesConfig;
 
-  if (pathname === '/' || pathname === '/auth/login') {
-    routes = constructRoutes(sscOnly, data);
-  } else {
-    routes = constructRoutes(microfrontendLayout, data);
-  }
+  // if (pathname === '/' || pathname === '/auth/login') {
+  //   routes = constructRoutes(sscOnly, data);
+  // } else {
+  //   routes = constructRoutes(microfrontendLayout, data);
+  // }
+  routes = constructRoutes(microfrontendLayout, data);
     
 
   const applications = constructApplications({
