@@ -1,11 +1,7 @@
 <single-spa-router>
-  <!--
+  <redirect from="/" to="/pages/stores"></redirect>
 
-    This is the single-spa Layout Definition for your microfrontends.
-    See https://single-spa.js.org/docs/layout-definition/ for more information.
-
-  -->
-  <route default>
+  <route path="pages">
     <div id="snb-body-section">
       <div id="snb-body__left-section"> 
         <div id="snb-sidebar__dom-element">
@@ -32,6 +28,10 @@
             loader="ssc"
             error="ssc"
           ></application>
+          <application 
+            name="@sinbad/web-sbp-embed" 
+            loader="sbp" 
+            error="sbp"></application>
         </div>
       </div>
     </div>

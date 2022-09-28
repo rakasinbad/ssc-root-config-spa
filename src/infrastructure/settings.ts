@@ -14,12 +14,14 @@ export const constructEngine = async () => {
     loaders: {
       ssc: "<h1>Loading Seller Center</h1>",
       sidebar: "<h1>Loading Sidebar</h1>",
-      header: "<h1>Loading Header</h1>",
+      sbp: "<h1>Loading Sales Force</h1></h1>",
+      header: "<h1>Loading Header</h1>"
     },
     errors: {
       ssc: "<h1>Failed to load Seller Center</h1>",
       sidebar: "<h1>Failed to load Sidebar</h1>",
       header: "<h1>Failed to load Header</h1>",
+      sbp: "<h1>Failed to load Sales Force</h1>"
     },
     props: {},
   };
