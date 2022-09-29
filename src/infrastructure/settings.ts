@@ -11,11 +11,13 @@ export const constructEngine = async () => {
   const routes = constructRoutes(microfrontendLayout, {
     loaders: {
       ssc: "<h1>Loading Seller Center</h1>",
-      sidebar: "<h1>Loading Sidebar"
+      sidebar: "<h1>Loading Sidebar</h1>",
+      sbp: "<h1>Loading Sales Force</h1>"
     },
     errors: {
       ssc: "<h1>Failed to load Seller Center</h1>",
-      sidebar: "<h1>Failed to load Sidebar</h1>"
+      sidebar: "<h1>Failed to load Sidebar</h1>",
+      sbp: "<h1>Failed to load Sales Force</h1>"
     },
     props: {}
   });

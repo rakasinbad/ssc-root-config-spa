@@ -1,0 +1,18 @@
+<single-spa-router>
+  <route default>
+    <div id="snb-body-section">
+      <div id="snb-body__left-section"> 
+        <div id="snb-sidebar__dom-element">
+          <application name="@sinbad/ssc-sidebar"></application>
+        </div>
+      </div>
+
+      <div id="snb-body__right-section">
+        <application 
+          name="@sinbad/web-sbp-embed" 
+          loader="sbp" 
+          error="sbp"></application>
+      </div>
+    </div>
+  </route>
+</single-spa-router>
