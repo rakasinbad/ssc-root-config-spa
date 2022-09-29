@@ -1,29 +1,49 @@
 <single-spa-router>
-  <redirect from="/" to="/pages/stores"></redirect>
+  <redirect from="/" to="/pages/account/stores"></redirect>
 
   <route path="pages">
     <div id="snb-body-section">
       <div id="snb-body__left-section"> 
         <div id="snb-sidebar__dom-element">
-          <application name="@sinbad/ssc-sidebar"></application>
+            <application
+                name="@sinbad/ssc-sidebar"
+                loader="sidebar"
+                error="sidebar"
+            ></application>
         </div>
       </div>
 
-      <div id="snb-body__right-section">
-        <route path="sales-force">
+      <div id="snb-body__right-section"> 
+        <div id="snb-header__dom-element">
+            <application
+                name="@sinbad/ssc-header"
+                loader="header"
+                error="header"
+            ></application>
+        </div>
+
+        <div id="snb-main__dom-element">
+          <application 
+            name="web-sinbad-seller-center"
+            loader="ssc"
+            error="ssc"
+          ></application>
           <application 
             name="@sinbad/web-sbp-embed" 
             loader="sbp" 
             error="sbp"></application>
-        </route>
-
-        <route default>
-          <application 
-            name="web-sinbad-seller-center" 
-            loader="ssc" 
-            error="ssc"></application>
-        </route>
+        </div>
       </div>
+    </div>
+  </route>
+
+  <route path="auth/login">
+    <div style="width: 100%;">
+      <application 
+          name="web-sinbad-seller-center"
+          loader="ssc"
+          error="ssc"
+        ></application>
     </div>
   </route>
 </single-spa-router>
