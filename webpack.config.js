@@ -1,6 +1,11 @@
 const { merge } = require("webpack-merge");
 const singleSpaDefaults = require("webpack-config-single-spa-ts");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { DefinePlugin } = require("webpack");
+const { resolve } = require("path");
+const { config } = require("dotenv");
+
+const env = config({ path: resolve(__dirname, "./.env") }).parsed;
 
 module.exports = (webpackConfigEnv, argv) => {
   const orgName = "sinbad";
@@ -23,6 +28,11 @@ module.exports = (webpackConfigEnv, argv) => {
           orgName,
         },
         favicon: "./src/favicon.ico",
+      }),
+      new DefinePlugin({
+        NODE_ENV: JSON.stringify(env.NODE_ENV),
+        API_HOST: JSON.stringify(env.API_HOST),
+        SSC_TOKEN: JSON.stringify(env.SSC_TOKEN),
       }),
     ],
   });

@@ -1,8 +1,9 @@
 import { start } from "single-spa";
-import { initEvent, constructEngine } from './infrastructure/settings';
+import { initEvent, constructEngine, initVariable } from './infrastructure/settings';
 
 async function bootstrap() {
   initEvent();
+  initVariable();
   const layoutEngine = await constructEngine();
   
   layoutEngine.activate();

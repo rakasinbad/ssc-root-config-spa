@@ -1,43 +1,52 @@
-import { registerApplication } from "single-spa";
+
+import { navigateToUrl, registerApplication } from "single-spa";
 import {
   constructApplications,
-  constructRoutes,
+  constructRoutes as spaRouteConstruct,
   constructLayoutEngine,
 } from "single-spa-layout";
-import microfrontendLayout from "../microfrontend-layout.html";
-import sscOnly from "../ssc-only.html";
-
 import { ResolvedRoutesConfig } from "single-spa-layout/dist/types/isomorphic/constructRoutes";
+import microfrontendLayout from "../../src/routes/microfrontend-layout.html";
+import loginLayout from "../../src/routes/login-layout.html";
+import Cookies from 'universal-cookie'
 
-export const constructEngine = async () => {
-  const data = {
-    loaders: {
-      ssc: "<h1>Loading Seller Center</h1>",
-      sidebar: "<h1>Loading Sidebar</h1>",
-      sbp: "<h1>Loading Sales Force</h1></h1>",
-      header: "<h1>Loading Header</h1>"
-    },
-    errors: {
-      ssc: "<h1>Failed to load Seller Center</h1>",
-      sidebar: "<h1>Failed to load Sidebar</h1>",
-      header: "<h1>Failed to load Header</h1>",
-      sbp: "<h1>Failed to load Sales Force</h1>"
-    },
-    props: {},
-  };
+const data = {
+  loaders: {
+    ssc: "<h1>Loading Seller Center</h1>",
+    sidebar: "<h1>Loading Sidebar",
+    sbp: "<h1>Loading Sales Force</h1></h1>",
+    header: "<h1>Loading Header</h1>",
+    login: "<h1>Loading Login</h1>",
+  },
+  errors: {
+    ssc: "<h1>Failed to load Seller Center</h1>",
+    sidebar: "<h1>Failed to load Sidebar</h1>",
+    header: "<h1>Failed to load Header</h1>",
+    sbp: "<h1>Failed to load Sales Force</h1>",
+    login: "<h1>Failed to load Sales Login</h1>"
+  },
+  props: {}
+}
 
-  const pathname = window.location.pathname //returns the current url minus the domain name
-
+const constructRoutes = async () => {
   let routes: ResolvedRoutesConfig;
 
-  // if (pathname === '/' || pathname === '/auth/login') {
-  //   routes = constructRoutes(sscOnly, data);
-  // } else {
-  //   routes = constructRoutes(microfrontendLayout, data);
-  // }
-  routes = constructRoutes(microfrontendLayout, data);
-    
+  const cookies = new Cookies();
+  const token = cookies.get('ssc-token');
 
+  if (!token) {
+    navigateToUrl("/login");
+    routes = spaRouteConstruct(loginLayout, data)
+  } else {
+    navigateToUrl('/pages/account/stores')
+    routes = spaRouteConstruct(microfrontendLayout, data)
+  }
+  return routes;
+}
+
+
+export const constructEngine = async () => {
+  const routes = await constructRoutes();
   const applications = constructApplications({
     routes,
     loadApp({ name }) {
@@ -65,4 +74,8 @@ export const initEvent = () => {
       element.click();
     }
   });
-};
+}
+
+export const initVariable = async () => {
+  globalThis.NODE_ENV = process.env["NODE_ENV"];
+}
