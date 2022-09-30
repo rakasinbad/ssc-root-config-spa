@@ -32,7 +32,7 @@ const constructRoutes = async () => {
   let routes: ResolvedRoutesConfig;
 
   const cookies = new Cookies();
-  const token = cookies.get(process.env["SSC_TOKEN"]);
+  const token = cookies.get('ssc-token');
 
   if (!token) {
     navigateToUrl("/login");
