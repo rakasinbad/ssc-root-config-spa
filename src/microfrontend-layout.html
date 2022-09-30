@@ -1,5 +1,8 @@
 <single-spa-router>
   <redirect from="/" to="/pages/account/stores"></redirect>
+  <redirect 
+    from="/pages/finances/collection-request" 
+    to="/pages/sales-force/finances/collection-request"></redirect>
 
   <route path="pages">
     <div id="snb-body-section">
@@ -23,15 +26,22 @@
         </div>
 
         <div id="snb-main__dom-element">
-          <application 
-            name="web-sinbad-seller-center"
-            loader="ssc"
-            error="ssc"
-          ></application>
-          <application 
-            name="@sinbad/web-sbp-embed" 
-            loader="sbp" 
-            error="sbp"></application>
+
+          <route path="sales-force">
+            <application 
+              name="@sinbad/web-sbp-embed" 
+              loader="sbp" 
+              error="sbp"></application>
+          </route>
+
+          <route default>
+            <application 
+              name="web-sinbad-seller-center"
+              loader="ssc"
+              error="ssc"
+            ></application>
+          </route>
+
         </div>
       </div>
     </div>
