@@ -38,7 +38,6 @@ const constructRoutes = async () => {
     navigateToUrl("/login");
     routes = spaRouteConstruct(loginLayout, data)
   } else {
-    navigateToUrl('/pages/account/stores')
     routes = spaRouteConstruct(microfrontendLayout, data)
   }
   return routes;
